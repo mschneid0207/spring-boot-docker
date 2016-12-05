@@ -1,0 +1,9 @@
+- Spring Data zum Laufen in Boot zu bringen
+- Spring Data vs. Postgresql konfigurieren
+- Spring Restservice mit Spring Data koppeln
+- Tabelle im Frontend aufbauen
+- mehr Tabellenspalten hinzufügen
+- Löschen implementieren
+- Hinzufügen implementieren
+- Update implementieren
+- Tabelle stylen
