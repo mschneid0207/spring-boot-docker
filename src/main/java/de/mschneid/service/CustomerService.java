@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,12 @@ public class CustomerService {
 
 	public List<CustomerEntity> getCustomers() {
 		//return customerRepository.findAll();
-		return toList(customerRepository.findAll());
+		Iterable<CustomerEntity> customers = customerRepository.findAll();
+		for (CustomerEntity customer : customers) {
+			System.out.println(customer.getBirthDate());
+		}
+		return (List<CustomerEntity>) customers;
+		//return toList(customerRepository.findAll());
 		//return IteratorUtils.toList(customerRepository.findAll());
 		
 //		List<CustomerEntity> customers = new ArrayList<CustomerEntity>();

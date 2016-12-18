@@ -49,9 +49,11 @@
 			<version>9.4-1200-jdbc41</version>
 		</dependency>
 
+		<!-- Lombok -->
 		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.12</version>
 		</dependency>
 	</dependencies>
 
