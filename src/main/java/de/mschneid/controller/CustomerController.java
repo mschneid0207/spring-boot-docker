@@ -1,10 +1,15 @@
 package de.mschneid.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.mschneid.entity.CustomerEntity;
 import de.mschneid.entity.Data;
 import de.mschneid.service.CustomerService;
 
@@ -21,6 +26,17 @@ public class CustomerController {
 		return this.customerService.getData();
 		// return "Hello Docker World";
 		// return getJson();
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/user/new", method = RequestMethod.POST)
+	public void createCustomer( @RequestBody CustomerEntity customer) {
+		if (customer != null) {
+			System.out.println(customer.toString());
+		}
+		System.out.println("createCustomer is called: " + customer.getFirstName());
+		//request.
+		customerService.createCustomer(customer);
 	}
 
 }

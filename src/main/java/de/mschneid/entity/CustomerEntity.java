@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -19,7 +20,8 @@ import lombok.Data;
 public class CustomerEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name="pk_sequence", sequenceName="customer_id_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="pk_sequence")
 	private Long id;
 	@Column(name="FIRST_NAME")
 	private String firstName;

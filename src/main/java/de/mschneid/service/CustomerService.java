@@ -1,5 +1,6 @@
 package de.mschneid.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -41,6 +42,11 @@ public class CustomerService {
 		Data data = new Data();
 		data.setCustomer(getCustomers());
 		return data;
+	}
+	
+	public void createCustomer(CustomerEntity customer) {
+		customer.setBirthDate(new Date());
+		customerRepository.save(customer);
 	}
 	
 	public static <T> List<T> toList(final Iterable<T> iterable) {
