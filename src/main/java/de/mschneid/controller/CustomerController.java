@@ -1,9 +1,8 @@
 package de.mschneid.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +36,13 @@ public class CustomerController {
 		System.out.println("createCustomer is called: " + customer.getFirstName());
 		//request.
 		customerService.createCustomer(customer);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/user/delete/{id}", method = RequestMethod.DELETE)
+    public void deleteCustomer(@PathVariable("id") long id) {
+		System.out.println("deleteCustomer was called: " + id);
+		customerService.deleteCustomer(id);
 	}
 
 }

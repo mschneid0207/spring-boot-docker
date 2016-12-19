@@ -49,6 +49,10 @@ public class CustomerService {
 		customerRepository.save(customer);
 	}
 	
+	public void deleteCustomer(long id) {
+		customerRepository.delete(id);
+	}
+	
 	public static <T> List<T> toList(final Iterable<T> iterable) {
 	    return StreamSupport.stream(iterable.spliterator(), false)
 	                        .collect(Collectors.toList());
